@@ -30,17 +30,42 @@ int _conteo = 0;
       ],
       )
     ),
-    floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        print('Hola mundo');
-        _conteo++;
-        setState(() {});
-      },
-      child: Icon( Icons.add ),
-    ),
+
+    floatingActionButton: _crearBotones() ,
     floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
   );
-
-
 }
+
+
+Widget _crearBotones(){
+
+return Row(
+  mainAxisAlignment: MainAxisAlignment.end, 
+  children: <Widget>[
+  SizedBox( width: 10 ),
+  FloatingActionButton( child: Icon(Icons.exposure_zero), onPressed: _resetear, ),
+  Expanded( child: SizedBox() ),
+  FloatingActionButton( child: Icon(Icons.remove), onPressed: _eliminar, ),
+  SizedBox( width: 5.0 ),
+  FloatingActionButton( child: Icon(Icons.add), onPressed: _agregar, ),
+  SizedBox( width: 5.0 ),
+  
+], );
+}
+
+void _agregar(){
+  _conteo++;
+  setState(() {});
+}
+
+void _eliminar(){
+  _conteo--;
+  setState(() {});
+}
+
+void _resetear(){
+  _conteo = 0;
+  setState(() {});
+}
+
 }
