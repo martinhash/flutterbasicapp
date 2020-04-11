@@ -54,18 +54,23 @@ return Row(
 }
 
 void _agregar(){
-  _conteo++;
-  setState(() {});
+  setState(() {
+    _conteo++;
+  });
 }
 
 void _eliminar(){
-  _conteo--;
-  setState(() {});
+  
+  setState(() {
+    _conteo--;
+    });
 }
 
 void _resetear(){
-  _conteo = 0;
-  setState(() {});
+ 
+  setState(() {
+     _conteo = 0;
+     });
 }
 
 }
