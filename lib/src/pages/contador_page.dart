@@ -1,41 +1,46 @@
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget{
+class ContadorPage extends StatefulWidget{
 
-final TextStyle estiloTexto = new TextStyle( fontSize: 40 );
-final int conteo = 10;
+  @override
+  createState() => _ContadorPageState();
 
 
-@override
-Widget build(BuildContext context) {
+}
+
+class _ContadorPageState extends State{
+
+final TextStyle _estiloTexto = new TextStyle( fontSize: 40 );
+int _conteo = 0;
+
+  @override
+ Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: Text('Titulo'),
+      title: Text('STATEFUL'),
       centerTitle: true,
     ),
     body: Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-        Text( 'Numero de clicks', style: estiloTexto),
-        Text( '$conteo', style: estiloTexto)
+        Text( 'Numero de taps', style: _estiloTexto),
+        Text( '$_conteo', style: _estiloTexto)
       ],
       )
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {
         print('Hola mundo');
+        _conteo++;
+        setState(() {});
       },
       child: Icon( Icons.add ),
     ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
   );
-  
-}
 
 
 }
-
+}
